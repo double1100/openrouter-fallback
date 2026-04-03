@@ -1,0 +1,21 @@
+#!/usr/bin/env python3
+"""
+OpenRouter Fallback CLI
+
+Usage:
+  or-auto "你的问题" [--model <模型ID>] [--temp <0-2>] [--tokens <数量>]
+  or-auto --list-models
+  or-auto --test
+"""
+
+import sys
+from pathlib import Path
+
+# 确保包可导入
+package_dir = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(package_dir))
+
+from openrouter_fallback.cli import main
+
+if __name__ == "__main__":
+    main()
