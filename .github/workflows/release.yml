@@ -30,14 +30,17 @@ jobs:
     - name: Build binary wheel and a source tarball
       run: python -m build --sdist --wheel --outdir dist/ .
 
-    - name: Publish to Test PyPI
-      uses: pypa/gh-action-pypi-publish@release/v1
-      with:
-        password: ${{ secrets.TEST_PYPI_API_TOKEN }}
-        repository-url: https://test.pypi.org/legacy/
-        skip-existing: true
+    # PyPI 发布已暂时禁用，如需发布请配置 Trusted Publisher 或传统 Token
+    # - name: Publish to Test PyPI
+    #   uses: pypa/gh-action-pypi-publish@release/v1
+    #   with:
+    #     password: ${{ secrets.TEST_PYPI_API_TOKEN }}
+    #     repository-url: https://test.pypi.org/legacy/
+    #     skip-existing: true
+    #     # use-oidc: false  # 如果使用传统 token，需取消注释
 
-    - name: Publish to PyPI
-      uses: pypa/gh-action-pypi-publish@release/v1
-      with:
-        password: ${{ secrets.PYPI_API_TOKEN }}
+    # - name: Publish to PyPI
+    #   uses: pypa/gh-action-pypi-publish@release/v1
+    #   with:
+    #     password: ${{ secrets.PYPI_API_TOKEN }}
+    #     # use-oidc: false
